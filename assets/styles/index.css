@@ -1,3 +1,4 @@
+/* reiniciando documento */
 *{
     margin: 0;
     padding: 0;
@@ -6,6 +7,7 @@
     overflow: hidden;
 }
 
+/* estilizando o conteudo do site */
 main {
     background-color: #1a1a1a;
     width: 100vw;
@@ -19,6 +21,7 @@ main {
     align-items: center;
 }
 
+/* estilizando a section que armazena as informações */
 .container-sec-center{
     width: 50%;
     height: 50%;
@@ -28,6 +31,7 @@ main {
     align-items: center;
 }
 
+/* estilizando o input de nome */
 .container-sec-center > input{
     width: 100%;
     max-width: 250px;
@@ -43,11 +47,13 @@ main {
     margin-left: 0.5rem;
 }
 
+/* estilizando o caso do input estar selecionado */
 .container-sec-center > input:focus{
     border-color: #1abc9c;
     outline: none;
 }
 
+/* estilizando o botao de acessar */
 .container-sec-center > button{
     width: 8vw;
     height: 6vh;
@@ -59,11 +65,13 @@ main {
     cursor: pointer;
 }
 
+/* quando o mouse passar por cima do botão */
 .container-sec-center > button:hover{
     background-color: #2980b9;
     transform: scale(1.1);
 }
 
+/* quando o botão for clicado */
 .container-sec-center > button:active{
     transform: scale(0.95);
 }

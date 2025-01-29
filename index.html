@@ -3,26 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- importando css -->
     <link rel="stylesheet" href="./assets/styles/index.css">
     <title>Login</title>
 </head>
 <body>
-    
 
+    <!-- indicando o conteudo principal do site -->
     <main>
 
+        <!-- titulo principal -->
         <h1>Informe seu nome para que eu possa te conhecer</h1>
 
+        <!-- section que irá englobar o dado do nome -->
         <section class="container-sec-center">
 
             <label for="nome">Nome</label>
+            <!-- pedindo o nome do usuário -->
             <input type="text" name="nome" id="nome" class="nome" required />
 
+            <!-- chamando uma função js para quando clicar no botão -->
             <button onclick="acessar()">ACESSAR</button>
 
         </section><!--container-sec-center-->
 
     </main>
+    <!-- importando js -->
     <script src="./assets/js/index.js" defer></script>
 </body>
 </html>
