@@ -5,18 +5,30 @@ function abrirCard(cardId) {
     const card = document.getElementById(cardId);
     card.classList.add('show');
 
-    // Adiciona um evento para fechar ao clicar fora
     function fecharFora(event) {
         if (!card.contains(event.target) && !event.target.matches('.btn')) {
             card.classList.remove('show');
-            document.removeEventListener('click', fecharFora); // Remove o evento ao fechar
+            document.removeEventListener('click', fecharFora);
+
+            // Esconder todas as divs de resultados
+            let resultados = document.getElementsByClassName('resultados');
+            for (let i = 0; i < resultados.length; i++) {
+                resultados[i].style.display = 'none';
+            }
+
+            // Limpar todos os inputs da classe 'valores'
+            let inputs = document.getElementsByClassName('valores');
+            for (let i = 0; i < inputs.length; i++) {
+                inputs[i].value = '';
+            }
         }
     }
 
     setTimeout(() => {
-        document.addEventListener('click', fecharFora); // Adiciona o evento com delay para evitar fechamento imediato
+        document.addEventListener('click', fecharFora);
     }, 0);
 }
+
 
 // Funções para cada botão que abre o respectivo card
 function abrirSomar() {
@@ -76,6 +88,10 @@ function abrirMemoriaCalculo() {
             document.addEventListener('click', fecharForaMemoria);
         }, 0);
     }
+
+    // Atualiza o histórico de memória ao abrir
+    atualizarMemoriaCalculo();
+
 }
 
 function verificarNumeroValido(numero) {
@@ -89,6 +105,24 @@ function verificarNumeroValido(numero) {
 function limparMemoriaCalculo() {
     memoria.length = 0; // Limpa o array de memória
     document.getElementById('historico-memorias').innerHTML = '<p>Memória apagada.</p>';
+}
+
+// Função para atualizar o histórico na tela
+function atualizarMemoriaCalculo() {
+    const historicoMemorias = document.getElementById('historico-memorias');
+
+    if (memoria.length === 0) {
+        historicoMemorias.innerHTML = '<p>Nenhuma operação realizada ainda.</p>';
+    } else {
+        historicoMemorias.innerHTML = memoria.map(item => `
+            <div>
+                <p><strong>OPERAÇÃO:</strong> ${item.operacao}</p>
+                <p><strong>CONTA:</strong> ${item.conta}</p>
+                <p><strong>RESULTADO:</strong> ${item.resultado}</p>
+                <hr>
+            </div>
+        `).join('');
+    }
 }
 
 function calcularSoma(){
@@ -109,6 +143,117 @@ function calcularSoma(){
     let resultadoTexto = document.getElementById('resultadoTextoSoma');
     divVisivel.style.display = 'block'; // Torna visível
     resultadoTexto.textContent = 'Resultado: ' + resultado;
+
+    memoria.push({
+        operacao: 'SOMA',
+        conta: `${num1} + ${num2}`,
+        resultado: resultado
+    });
+}
+
+function limparSoma(){
+    document.getElementById('number1-soma').value = '';
+    document.getElementById('number2-soma').value = '';
+
+    document.getElementById('resultadoSoma').style.display = 'none';
+    document.getElementById('resultadoTextoSoma').textContent = '';
 }
 
 
+function calcularSubtracao(){
+    let num1 = document.getElementById('number1-subtracao').value;
+    let num2 = document.getElementById('number2-subtracao').value;
+
+    if(!verificarNumeroValido(num1) || !verificarNumeroValido(num2)){
+        alert('Valor01 ou Valor02 inválidos! Digite um número válido.');
+        return;
+    }
+
+    let resultado = parseFloat(num1) - parseFloat(num2);
+
+    let divVisivel = document.getElementById('resultadoSubtracao');
+    let resultadoTexto = document.getElementById('resultadoTextoSubtracao');
+    divVisivel.style.display = 'block'; // Torna visível
+    resultadoTexto.textContent = 'Resultado: ' + resultado;
+
+    memoria.push({
+        operacao: 'SUBTRAÇÃO',
+        conta: `${num1} - ${num2}`,
+        resultado: resultado
+    });
+}
+
+function limparSubtracao(){
+    document.getElementById('number1-subtracao').value = '';
+    document.getElementById('number2-subtracao').value = '';
+
+    document.getElementById('resultadoSubtracao').style.display = 'none';
+    document.getElementById('resultadoTextoSubtracao').textContent = '';
+}
+
+function calcularMultiplicacao(){
+    let num1 = document.getElementById('number1-multiplicacao').value;
+    let num2 = document.getElementById('number2-multiplicacao').value;
+
+    if(!verificarNumeroValido(num1) || !verificarNumeroValido(num2)){
+        alert('Valor01 ou Valor02 inválidos! Digite um número válido.');
+        return;
+    }
+
+    let resultado = parseFloat(num1) * parseFloat(num2);
+
+    let divVisivel = document.getElementById('resultadoMultiplicacao');
+    let resultadoTexto = document.getElementById('resultadoTextoMultiplicacao');
+    divVisivel.style.display = 'block'; // Torna visível
+    resultadoTexto.textContent = 'Resultado: ' + resultado;
+
+    memoria.push({
+        operacao: 'MULTIPLICAÇÃO',
+        conta: `${num1} * ${num2}`,
+        resultado: resultado
+    });
+}
+
+function limparMultiplicacao(){
+    document.getElementById('number1-multiplicacao').value = '';
+    document.getElementById('number2-multiplicacao').value = '';
+
+    document.getElementById('resultadoMultiplicacao').style.display = 'none';
+    document.getElementById('resultadoTextoMultiplicacao').textContent = '';
+}
+
+
+function calcularDivisao(){
+    let num1 = document.getElementById('number1-divisao').value;
+    let num2 = document.getElementById('number2-divisao').value;
+
+    if(!verificarNumeroValido(num1) || !verificarNumeroValido(num2)){
+        alert('Valor01 ou Valor02 inválidos! Digite um número válido.');
+        return;
+    }
+
+    if(num1 == 0 || num2 == 0){
+        alert('Divisão por 0 detectada! substitua os valores.');
+    }else{
+        let resultado = parseFloat(num1) / parseFloat(num2);
+        let divVisivel = document.getElementById('resultadoDivisao');
+        let resultadoTexto = document.getElementById('resultadoTextoDivisao');
+        divVisivel.style.display = 'block'; // Torna visível
+        resultadoTexto.textContent = 'Resultado: ' + resultado;
+    
+        memoria.push({
+            operacao: 'DIVISÃO',
+            conta: `${num1} / ${num2}`,
+            resultado: resultado
+        });
+    }
+
+}
+
+function limparDivisao(){
+    document.getElementById('number1-divisao').value = '';
+    document.getElementById('number2-divisao').value = '';
+
+    document.getElementById('resultadoDivisao').style.display = 'none';
+    document.getElementById('resultadoTextoDivisao').textContent = '';
+}
