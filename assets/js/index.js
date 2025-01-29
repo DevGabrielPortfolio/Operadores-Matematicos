@@ -1,5 +1,9 @@
 function acessar(){
     const nome = document.getElementById('nome').value;
-    localStorage.setItem('nome', nome);
-    window.location.href = '../../templates/home.html'
+    if(nome == ''){
+        alert('Nome não detectado, digite um nome válido!');
+    }else{
+        localStorage.setItem('nome', nome);
+        window.location.href = '../../templates/home.html'
+    }
 }
