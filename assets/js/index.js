@@ -110,3 +110,5 @@ function calcularSoma(){
     divVisivel.style.display = 'block'; // Torna visível
     resultadoTexto.textContent = 'Resultado: ' + resultado;
 }
+
+
