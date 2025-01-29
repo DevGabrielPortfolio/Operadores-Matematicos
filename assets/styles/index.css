@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
 }
 
 main {
@@ -13,175 +14,21 @@ main {
 
     /* Centralizando o container no centro da página */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.container-sec-left {
+.container-sec-center{
+    width: 50%;
+    height: 50%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    width: 80%;
-    /* max-width: 800px; */
-    height: auto;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    background-color: #2e2e2e;
-}
-
-
-.container-sec-left > .boas-vindas-right{
-    width: 100%;
-    margin-bottom: 1rem;
-    background-color: #3a3a3a;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
-.container-sec-left > .container-sec-left__container-btn{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    margin-top: 1rem;
-    gap: 20px;
-}
-
-.container-sec-left > .container-sec-left__container-btn > button {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    flex: 1 1 200px; /* Garantir que o botão ocupe 200px no mínimo, mas se ajuste */
-}
-
-.container-sec-left > .container-sec-left__container-btn > button:hover{
-    background-color: #2980b9;
-    transform: scale(1.1);
-}
-
-.container-sec-left > .container-sec-left__container-btn > button:active{
-    transform: scale(0.95);
-}
-
-.container-sec-left> .container-sec-left__container-btn > .container-sec-left__container-btn__memoria{
-    background-color: #b700ff;
-}
-
-.container-sec-left> .container-sec-left__container-btn > .container-sec-left__container-btn__memoria:hover{
-    background-color: #8d00c5;
-}
-
-.container-sec-left > .container-sec-left__btn-limpar{
-    margin-top: 1rem;
-}
-
-.container-sec-left > .container-sec-left__btn-limpar > button{
-    background-color: #db3434;
-    color: #fff;
-    border: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    border-radius: 6px;
-    margin-left: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.container-sec-left > .container-sec-left__btn-limpar > button:hover{
-    background-color: #b12929;
-    transform: scale(1.1);
-}
-
-.container-sec-left > .container-sec-left__btn-limpar > button:active{
-    transform: scale(0.95);
-}
-
-.cards {
-    position: fixed;
-    left: -100%;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #3a3a3a;
-    padding: 1rem;
-    width: 300px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    transition: all 0.5s ease-out;
-    z-index: 1000;
-}
-
-.cards > h3{
-    text-align: center;
-    margin-bottom: 0.5rem;
-}
-
-.cards > .botoes{
-    display: flex;
-    width: 100%;
-}
-
-.cards > .botoes > .limparCard{
-    background-color: #ff0000;
-    color: #fff;
-    border: none;
-    padding: 15px 25px;
-    font-size: 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: flex;
-    margin: auto;
-}
-
-.cards > .botoes > .limparCard:hover{
-    background-color: #b70000;
-    transform: scale(1.1);
-}
-
-.cards > .botoes > .limparCard:active{
-    transform: scale(0.95);
-}
-
-.cards > .botoes > .calcularCard{
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    padding: 15px 25px;
-    font-size: 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: flex;
-    margin: auto;
-}
-
-.cards > .botoes > .calcularCard:hover{
-    background-color: #2980b9;
-    transform: scale(1.1);
-}
-
-.cards > .botoes > .calcularCard:active{
-    transform: scale(0.95);
-}
-
-.cards.active{
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.cards > input{
+.container-sec-center > input{
     width: 100%;
     max-width: 250px;
     height: 50px;
@@ -196,79 +43,26 @@ main {
     margin-left: 0.5rem;
 }
 
-.cards > input:focus{
+.container-sec-center > input:focus{
     border-color: #1abc9c;
     outline: none;
 }
 
-.cards.show{
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 1;
-    display: block;
-}
-
-.resultados{
-    display: none;
-    background-color: #e0ffe0;
-    color: #3a3a3a;
-    padding: 10px;
-    border-radius: 6px;
-    margin-top: 15px;
-}
-
-.resultadoTexto{
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.container-sec-left > .container-sec-left__janela-memoria{
-    position: fixed;
-    left: -100%;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #3a3a3a;
-    padding: 1rem;
-    width: 300px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: left 0.3s ease;
-    z-index: 1000;
-}
-
-.container-sec-left > .container-sec-left__janela-memoria.active{
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.container-sec-left > .container-sec-left__janela-memoria > h3{
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-.container-sec-left > .container-sec-left__janela-memoria > .historico-memorias{
-    color: #fff;
-    font-size: 16px;
-}
-
-.container-sec-left > .container-sec-left__janela-memoria > button{
-    background-color: #db3434;
+.container-sec-center > button{
+    width: 8vw;
+    height: 6vh;
+    background-color: #3498db;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 10px;
+    border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.container-sec-left > .container-sec-left__janela-memoria > button:hover{
-    background-color: #c0392b;
+.container-sec-center > button:hover{
+    background-color: #2980b9;
     transform: scale(1.1);
 }
 
-.container-sec-left > .container-sec-left__janela-memoria > button:active{
+.container-sec-center > button:active{
     transform: scale(0.95);
 }
