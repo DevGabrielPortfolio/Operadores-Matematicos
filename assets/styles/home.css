@@ -39,7 +39,7 @@ body {
     transition: width 0.3s ease, left 0.3s ease;
 }
 
-/* Quando passa o mouse sobre o link, a linha se expande */
+/* Quando passa o mouse no link, a linha aumenta */
 .menu a:hover::after {
     width: 100%;
     left: 0;
@@ -129,6 +129,28 @@ main {
 
 .container-sec-left> .container-sec-left__container-btn > .container-sec-left__container-btn__memoria:hover{
     background-color: #8d00c5;
+}
+
+.linkFeedback{
+    text-decoration: none !important;  /* Remove o sublinhado */
+    color: inherit !important;
+    color: #fff;
+    padding-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.linkFeedback:visited{
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.linkFeedback:hover{
+    color: #9ad6ff;
+    transform: scale(1.1);
+}
+
+.linkFeedback:active{
+    transform: scale(0.95);
 }
 
 .cards {
