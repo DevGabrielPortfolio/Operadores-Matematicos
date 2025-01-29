@@ -257,3 +257,37 @@ function limparDivisao(){
     document.getElementById('resultadoDivisao').style.display = 'none';
     document.getElementById('resultadoTextoDivisao').textContent = '';
 }
+
+function calcularPorcentagem(){
+    let num1 = document.getElementById('number1-porcentagem').value;
+    let num2 = document.getElementById('number2-porcentagem').value;
+
+    if(!verificarNumeroValido(num1) || !verificarNumeroValido(num2)){
+        alert('Valor01 ou Valor02 inválidos! Digite um número válido.');
+        return;
+    }else if(num2 < 0){
+        alert('A porcentagem não pode ser um número negativo!');
+    }else{
+        let resultado = (parseFloat(num1) * parseFloat(num2)) / 100;
+    
+        let divVisivel = document.getElementById('resultadoPorcentagem');
+        let resultadoTexto = document.getElementById('resultadoTextoPorcentagem');
+        divVisivel.style.display = 'block'; // Torna visível
+        resultadoTexto.textContent = 'Resultado: ' + resultado;
+    
+        memoria.push({
+            operacao: 'PORCENTAGEM',
+            conta: `${num2}% de ${num1}`,
+            resultado: resultado
+        });
+    }
+
+}
+
+function limparPorcentagem(){
+    document.getElementById('number1-porcentagem').value = '';
+    document.getElementById('number2-porcentagem').value = '';
+
+    document.getElementById('resultadoPorcentagem').style.display = 'none';
+    document.getElementById('resultadoTextoPorcentagem').textContent = '';
+}
