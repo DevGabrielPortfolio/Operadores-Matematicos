@@ -1,9 +1,11 @@
+/* reiniciando documento */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* estilizando o body */
 body{
     display: flex;
     justify-content: center;
@@ -12,10 +14,12 @@ body{
     overflow: hidden;
 }
 
+/* tirando a decoração de todos os A da página */
 a{
     text-decoration: none;
 }
 
+/* estilizando o container BOX */
 .box{
     font-size: 20px;
     color: #fff;
@@ -29,6 +33,7 @@ a{
     justify-content: center;
 }
 
+/* estilizando a div dos botões */
 .buttons-container{
     display: flex;
     justify-content: space-around;
@@ -36,6 +41,7 @@ a{
     width: 150px;
 }
 
+/* estilizando os botões */
 button{
     height: 30px;
     width: 50px;
