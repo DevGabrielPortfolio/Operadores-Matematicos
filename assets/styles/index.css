@@ -127,11 +127,16 @@ main {
     margin-bottom: 0.5rem;
 }
 
-.cards > button{
-    background-color: #3498db;
+.cards > .botoes{
+    display: flex;
+    width: 100%;
+}
+
+.cards > .botoes > .limparCard{
+    background-color: #ff0000;
     color: #fff;
     border: none;
-    padding: 15px 30px;
+    padding: 15px 25px;
     font-size: 18px;
     border-radius: 6px;
     cursor: pointer;
@@ -140,12 +145,34 @@ main {
     margin: auto;
 }
 
-.cards > button:hover{
+.cards > .botoes > .limparCard:hover{
+    background-color: #b70000;
+    transform: scale(1.1);
+}
+
+.cards > .botoes > .limparCard:active{
+    transform: scale(0.95);
+}
+
+.cards > .botoes > .calcularCard{
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    margin: auto;
+}
+
+.cards > .botoes > .calcularCard:hover{
     background-color: #2980b9;
     transform: scale(1.1);
 }
 
-.cards > button:active{
+.cards > .botoes > .calcularCard:active{
     transform: scale(0.95);
 }
 
@@ -234,9 +261,14 @@ main {
     border-radius: 6px;
     cursor: pointer;
     margin-top: 10px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .container-sec-left > .container-sec-left__janela-memoria > button:hover{
     background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+.container-sec-left > .container-sec-left__janela-memoria > button:active{
+    transform: scale(0.95);
 }
