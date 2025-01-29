@@ -4,251 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/styles/index.css">
-    <title>Calculos matemáticos</title>
+    <title>Login</title>
 </head>
 <body>
     
+
     <main>
 
-        <!-- armazena todos os botões de ação e cards -->
-        <section class="container-sec-left">
+        <h1>Informe seu nome para que eu possa te conhecer</h1>
 
-            <div class="boas-vindas-right">
+        <section class="container-sec-center">
 
-                <h1>Bem-vindo ao nosso site de operações matemáticas!</h1>
-                <h2>Realize cálculos rápidos e precisos com facilidade.</h2>
-    
-            </div><!--boas-vindas-right-->
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" class="nome" required />
 
-            <!-- classe que irá armazenar os botões de ações dentro do site (operações a serem realizadas) -->
-            <div class="container-sec-left__container-btn">
+            <button onclick="acessar()">ACESSAR</button>
 
-                <!-- soma -->
-                <button onclick="abrirSomar()">SOMAR</button>
-                <!-- subtração -->
-                <button onclick="abrirSubtrair()">SUBTRAIR</button>
-                <!-- multiplicação -->
-                <button onclick="abrirMultiplicar()">MULTIPLICAR</button>
-                <!-- divisão -->
-                <button onclick="abrirDividir()">DIVIDIR</button>
-                <!-- porcentagem -->
-                <button onclick="abrirPorcentagem()">PORCENTAGEM</button>
-                <!-- pagamento à prazo -->
-                <button onclick="abrirPagamentoPrazo()">PAGAMENTO À PRAZO</button>
-                <!-- pagamento à vista -->
-                <button onclick="abrirPagamentoVista()">PAGAMENTO À VISTA</button>
-                <!-- abrir memória de cálculo -->
-                <button onclick="abrirMemoriaCalculo()" class="container-sec-left__container-btn__memoria">MEMÓRIA DE CÁLCULO</button>
-
-            </div><!--container-sec-left__container-btn-->
-
-            <!-- card que irá armazenar a conta de soma -->
-            <div class="container-sec-left__card-soma cards" id="card-soma">
-
-                <h3>SOMA</h3>
-
-                <input type="number" name="number1" id="number1-soma" placeholder="1° Valor" required class="valores" />
-
-                <input type="number" name="number2" id="number2-soma" placeholder="2° Valor" required class="valores" />
-
-                <!-- classe que armazena o botão que ficará responsável por limpar todos os campos, inclusive, esconder a div de resultado -->
-                <div class="container-sec-left__card-soma__botoes botoes">
-
-                    <button onclick="calcularSoma()" class="calcularCard">CALCULAR</button>
-
-                    <button onclick="limparSoma()" class="limparCard">LIMPAR</button>
-
-                </div>
-                
-
-                <!-- preenchido com JS -->
-                <div class="resultadoSoma resultados" id="resultadoSoma">
-
-                    <p class="resultadoTexto" id="resultadoTextoSoma"></p>
-
-                </div>
-
-            </div><!--container-sec-left__card-soma cards-->
-
-            <!-- card que irá armazenar a conta de subtraçãao -->
-            <div class="container-sec-left__card-subtracao cards" id="card-subtracao">
-
-                <h3>SUBTRAÇÃO</h3>
-
-                <input type="number" name="number1" id="number1-subtracao" placeholder="1° Valor" required class="valores" />
-
-                <input type="number" name="number2" id="number2-subtracao" placeholder="2° Valor" required class="valores" />
-
-                <!-- classe que armazena o botão que ficará responsável por limpar todos os campos, inclusive, esconder a div de resultado -->
-                <div class="container-sec-left__card-subtracao__botoes botoes">
-
-                    <button onclick="calcularSubtracao()" class="calcularCard">CALCULAR</button>
-
-                    <button onclick="limparSubtracao()" class="limparCard">LIMPAR</button>
-
-                </div>
-
-                <!-- preenchido com JS -->
-                <div class="resultadoSubtracao resultados" id="resultadoSubtracao">
-
-                    <p class="resultadoTexto" id="resultadoTextoSubtracao"></p>
-
-                </div>
-
-            </div><!--container-sec-left__card-subtracao cards-->
-
-            <!-- card que irá armazenar a conta de multiplicação -->
-            <div class="container-sec-left__card-multiplicacao cards" id="card-multiplicacao">
-
-                <h3>MULTIPLICAÇÃO</h3>
-
-                <input type="number" name="number1" id="number1-multiplicacao" placeholder="1° Valor" required class="valores" />
-
-                <input type="number" name="number2" id="number2-multiplicacao" placeholder="2° Valor" required class="valores" />
-
-                <!-- classe que armazena o botão que ficará responsável por limpar todos os campos, inclusive, esconder a div de resultado -->
-                <div class="container-sec-left__card-multiplicacao__botoes botoes">
-
-                    <button onclick="calcularMultiplicacao()" class="calcularCard">CALCULAR</button>
-
-                    <button onclick="limparMultiplicacao()" class="limparCard">LIMPAR</button>
-
-                </div>
-
-                <!-- preenchido com JS -->
-                <div class="resultadoMultiplicacao resultados" id="resultadoMultiplicacao">
-
-                    <p class="resultadoTexto" id="resultadoTextoMultiplicacao"></p>
-
-                </div>
-
-            </div><!--container-sec-left__card-multiplicacao cards-->
-
-            <!-- card que irá armazenar a conta de divisão -->
-            <div class="container-sec-left__card-divisao cards" id="card-divisao">
-
-                <h3>DIVISÃO</h3>
-
-                <input type="number" name="number1" id="number1-divisao" placeholder="Dividendo" required class="valores" />
-
-                <input type="number" name="number2" id="number2-divisao" placeholder="Divisor" required class="valores" />
-
-                <!-- classe que armazena o botão que ficará responsável por limpar todos os campos, inclusive, esconder a div de resultado -->
-                <div class="container-sec-left__card-divisao__botoes botoes">
-
-                    <button onclick="calcularDivisao()" class="calcularCard">CALCULAR</button>
-
-                    <button onclick="limparDivisao()" class="limparCard">LIMPAR</button>
-
-                </div>
-
-                <!-- preenchido com JS -->
-                <div class="resultadoDivisao resultados" id="resultadoDivisao">
-
-                    <p class="resultadoTexto" id="resultadoTextoDivisao"></p>
-
-                </div>
-
-            </div><!--container-sec-left__card-divisao cards-->
-
-            <!-- card que irá armazenar a conta de divisão -->
-            <div class="container-sec-left__card-porcentagem cards" id="card-porcentagem">
-
-                <h3>PORCENTAGEM</h3>
-
-                <input type="number" name="number1" id="number1-porcentagem" placeholder="Valor Total" required class="valores" />
-
-                <input type="number" name="number2" id="number2-porcentagem" placeholder="%" required class="valores" />
-
-                <!-- classe que armazena o botão que ficará responsável por limpar todos os campos, inclusive, esconder a div de resultado -->
-                <div class="container-sec-left__card-porcentagem__botoes botoes">
-
-                    <button onclick="calcularPorcentagem()" class="calcularCard">CALCULAR</button>
-
-                    <button onclick="limparPorcentagem()" class="limparCard">LIMPAR</button>
-
-                </div>
-
-                <!-- preenchido com JS -->
-                <div class="resultadoPorcentagem resultados" id="resultadoPorcentagem">
-
-                    <p class="resultadoTexto" id="resultadoTextoPorcentagem"></p>
-
-                </div>
-
-            </div><!--container-sec-left__card-porcentagem cards-->
-
-            <!-- card que irá armazenar a conta de pagamento à prazo -->
-            <div class="container-sec-left__card-pagamentoPrazo cards" id="card-pagamentoPrazo">
-
-                <h3>PAGAMENTO À PRAZO</h3>
-
-                <input type="number" name="number1" id="number1-pagamentoPrazo" placeholder="Valor Total" required class="valores" />
-
-                <input type="number" name="number2" id="number2-pagamentoPrazo" placeholder="Acréscimo" required class="valores" />
-
-                <!-- classe que armazena o botão que ficará responsável por limpar todos os campos, inclusive, esconder a div de resultado -->
-                <div class="container-sec-left__card-pagamentoPrazo__botoes botoes">
-
-                    <button onclick="calcularPagamentoPrazo()" class="calcularCard">CALCULAR</button>
-
-                    <button onclick="limparPagamentoPrazo()" class="limparCard">LIMPAR</button>
-
-                </div>
-
-                <!-- preenchido com JS -->
-                <div class="resultadoPagamentoPrazo resultados" id="resultadoPagamentoPrazo">
-
-                    <p class="resultadoTexto" id="resultadoTextoPagamentoPrazo"></p>
-
-                </div>
-
-            </div><!--container-sec-left__card-pagamentoPrazo cards-->
-
-            <!-- card que irá armazenar a conta de pagamento à vista -->
-            <div class="container-sec-left__card-pagamentoVista cards" id="card-pagamentoVista">
-
-                <h3>PAGAMENTO À VISTA</h3>
-
-                <input type="number" name="number1" id="number1-pagamentoVista" placeholder="Valor Total" required class="valores" />
-
-                <input type="number" name="number2" id="number2-pagamentoVista" placeholder="Desconto" required class="valores" />
-
-                <!-- classe que armazena o botão que ficará responsável por limpar todos os campos, inclusive, esconder a div de resultado -->
-                <div class="container-sec-left__card-pagamentoVista__botoes botoes">
-
-                    <button onclick="calcularPagamentoVista()" class="calcularCard">CALCULAR</button>
-
-                    <button onclick="limparPagamentoVista()" class="limparCard">LIMPAR</button>
-
-                </div>
-
-                <!-- preenchido com JS -->
-                <div class="resultadoPagamentoVista resultados" id="resultadoPagamentoVista">
-
-                    <p class="resultadoTexto" id="resultadoTextoPagamentoVista"></p>
-
-                </div>
-
-            </div><!--container-sec-left__card-pagamentoPrazo cards-->
-
-            <!-- Janela de memoria de cálculo -->
-            <div class="container-sec-left__janela-memoria" id="janela-memoria">
-
-                <h3>Memória de Cálculo</h3>
-
-                <!-- será preenchido com JavaScript -->
-                <div id="historico-memorias" class="historico-memorias"></div>
-
-                <button onclick="limparMemoriaCalculo()">Limpar Memória</button>
-
-            </div><!--container-sec-left__janela-memoria"-->
-
-        </section><!--container-sec-left-->
+        </section><!--container-sec-center-->
 
     </main>
-
     <script src="./assets/js/index.js" defer></script>
-
 </body>
 </html>
