@@ -131,31 +131,6 @@ main {
     background-color: #8d00c5;
 }
 
-.container-sec-left > .container-sec-left__btn-limpar{
-    margin-top: 1rem;
-}
-
-.container-sec-left > .container-sec-left__btn-limpar > button{
-    background-color: #db3434;
-    color: #fff;
-    border: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    border-radius: 6px;
-    margin-left: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.container-sec-left > .container-sec-left__btn-limpar > button:hover{
-    background-color: #b12929;
-    transform: scale(1.1);
-}
-
-.container-sec-left > .container-sec-left__btn-limpar > button:active{
-    transform: scale(0.95);
-}
-
 .cards {
     position: fixed;
     left: -100%;
