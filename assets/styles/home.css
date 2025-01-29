@@ -1,14 +1,17 @@
+/* reiniciando o documento */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* aplicando estilizações gerais da página */
 body {
     font-family: Arial, sans-serif;
     overflow: hidden;
 }
 
+/* estilizando o menu */
 .menu {
     display: flex;
     justify-content: center;
@@ -18,6 +21,7 @@ body {
     padding: 20px 0;
 }
 
+/* estilizando links do menu */
 .menu a {
     text-decoration: none;
     color: #fff;
@@ -51,6 +55,7 @@ body {
     left: 0;
 }
 
+/* estilizando o conteudo principal do site */
 main {
     background-color: #1a1a1a;
     width: 100vw;
@@ -63,6 +68,7 @@ main {
     align-items: center;
 }
 
+/* estilizando a section principal do site */
 .container-sec-left {
     display: flex;
     flex-direction: column;
@@ -80,7 +86,7 @@ main {
     left: 8rem;
 }
 
-
+/* estilizando o texto de boas vindas */
 .container-sec-left > .boas-vindas-right{
     width: 100%;
     margin-bottom: 1rem;
@@ -93,6 +99,7 @@ main {
     align-items: center;
 }
 
+/* estilizando o container dos botões */
 .container-sec-left > .container-sec-left__container-btn{
     display: flex;
     flex-wrap: wrap;
@@ -102,6 +109,7 @@ main {
     gap: 20px;
 }
 
+/* estilizando os botões de ação */
 .container-sec-left > .container-sec-left__container-btn > button {
     background-color: #3498db;
     color: #fff;
@@ -114,23 +122,28 @@ main {
     flex: 1 1 200px; /* Garantir que o botão ocupe 200px no mínimo, mas se ajuste */
 }
 
+/* quando o mouse passar por cima do botão */
 .container-sec-left > .container-sec-left__container-btn > button:hover{
     background-color: #2980b9;
     transform: scale(1.1);
 }
 
+/* quando o botão for clicado */
 .container-sec-left > .container-sec-left__container-btn > button:active{
     transform: scale(0.95);
 }
 
+/* trocando a cor do botão de memoria */
 .container-sec-left> .container-sec-left__container-btn > .container-sec-left__container-btn__memoria{
     background-color: #b700ff;
 }
 
+/* quando o mouse passar por cima do botão de memoria */
 .container-sec-left> .container-sec-left__container-btn > .container-sec-left__container-btn__memoria:hover{
     background-color: #8d00c5;
 }
 
+/* estilizando o link de acesso a pagina de feedback */
 .linkFeedback{
     text-decoration: none !important;  /* Remove o sublinhado */
     color: inherit !important;
@@ -139,20 +152,24 @@ main {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* removendo o estilo extra do link para quando ele ja tenha sido visitado */
 .linkFeedback:visited{
     outline: none !important;
     box-shadow: none !important;
 }
 
+/* quando o mouse passar por cima do link  */
 .linkFeedback:hover{
     color: #9ad6ff;
     transform: scale(1.1);
 }
 
+/* para quando o link for clicao */
 .linkFeedback:active{
     transform: scale(0.95);
 }
 
+/* estilizando os cards */
 .cards {
     position: fixed;
     left: -100%;
@@ -168,16 +185,19 @@ main {
     z-index: 1000;
 }
 
+/* estilizando o titulo dos cards */
 .cards > h3{
     text-align: center;
     margin-bottom: 0.5rem;
 }
 
+/* estilizando os botoes dos cards */
 .cards > .botoes{
     display: flex;
     width: 100%;
 }
 
+/* estilizando o botao de limpeza dos cards */
 .cards > .botoes > .limparCard{
     background-color: #ff0000;
     color: #fff;
@@ -191,15 +211,18 @@ main {
     margin: auto;
 }
 
+/* estilizando o botão de limpeza dos cards para quando o mouse passar por cima */
 .cards > .botoes > .limparCard:hover{
     background-color: #b70000;
     transform: scale(1.1);
 }
 
+/* estilizando o botão de limpeza dos cards para quando for clicado */
 .cards > .botoes > .limparCard:active{
     transform: scale(0.95);
 }
 
+/* estilizando o botão de calcular as contas dentro dos cards */
 .cards > .botoes > .calcularCard{
     background-color: #3498db;
     color: #fff;
@@ -212,21 +235,23 @@ main {
     display: flex;
     margin: auto;
 }
-
+/* estilizando o efeito de passar o mouse por cima do botão de calcular de cada card */
 .cards > .botoes > .calcularCard:hover{
     background-color: #2980b9;
     transform: scale(1.1);
 }
-
+/* estilizando o efeito de clicar no botão de calcular de cada card */
 .cards > .botoes > .calcularCard:active{
     transform: scale(0.95);
 }
 
+/* quando o card estiver aparecendo */
 .cards.active{
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
+/* estilizando o campo de input de cada card */
 .cards > input{
     width: 100%;
     max-width: 250px;
@@ -242,11 +267,13 @@ main {
     margin-left: 0.5rem;
 }
 
+/* quando o input estiver selecionado */
 .cards > input:focus{
     border-color: #1abc9c;
     outline: none;
 }
 
+/* quando o mouse aparecer */
 .cards.show{
     left: 50%;
     transform: translate(-50%, -50%);
@@ -254,6 +281,7 @@ main {
     display: block;
 }
 
+/* estilizando a div de resultado de cada card */
 .resultados{
     display: none;
     background-color: #e0ffe0;
@@ -263,11 +291,13 @@ main {
     margin-top: 15px;
 }
 
+/* estilizando o P de resultado de cada card */
 .resultadoTexto{
     font-size: 20px;
     font-weight: bold;
 }
 
+/* estilizando o container de memoria  */
 .container-sec-left > .container-sec-left__janela-memoria{
     position: fixed;
     left: -100%;
@@ -282,22 +312,26 @@ main {
     z-index: 1000;
 }
 
+/* quando o conteiner de memoria estiver aparecendo  */
 .container-sec-left > .container-sec-left__janela-memoria.active{
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
+/* estilizando o titulo da janela de memoria */
 .container-sec-left > .container-sec-left__janela-memoria > h3{
     font-size: 24px;
     margin-bottom: 10px;
     color: #fff;
 }
 
+/* estilizando a div historico de memorias */
 .container-sec-left > .container-sec-left__janela-memoria > .historico-memorias{
     color: #fff;
     font-size: 16px;
 }
 
+/* estilizando o botão da janela de memorias  */
 .container-sec-left > .container-sec-left__janela-memoria > button{
     background-color: #db3434;
     color: #fff;
@@ -310,11 +344,13 @@ main {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* estilizando o efeito de passar com mouse por cima do botão da tela de memorias */
 .container-sec-left > .container-sec-left__janela-memoria > button:hover{
     background-color: #c0392b;
     transform: scale(1.1);
 }
 
+/* estilizando o botão da tela de memorias para quando ele estiver clicado */
 .container-sec-left > .container-sec-left__janela-memoria > button:active{
     transform: scale(0.95);
 }
