@@ -91,6 +91,8 @@ function abrirMemoriaCalculo() {
 
     // Atualiza o histórico de memória ao abrir
     atualizarMemoriaCalculo();
+    atualizarMemoriaCalculoPagamentoPrazo();
+    atualizarMemoriaCalculoPagamentoVista();
 
 }
 
@@ -117,6 +119,44 @@ function atualizarMemoriaCalculo() {
         historicoMemorias.innerHTML = memoria.map(item => `
             <div>
                 <p><strong>OPERAÇÃO:</strong> ${item.operacao}</p>
+                <p><strong>CONTA:</strong> ${item.conta}</p>
+                <p><strong>RESULTADO:</strong> ${item.resultado}</p>
+                <hr>
+            </div>
+        `).join('');
+    }
+}
+
+function atualizarMemoriaCalculoPagamentoPrazo() {
+    const historicoMemorias = document.getElementById('historico-memorias');
+
+    if (memoria.length === 0) {
+        historicoMemorias.innerHTML = '<p>Nenhuma operação realizada ainda.</p>';
+    } else {
+        historicoMemorias.innerHTML = memoria.map(item => `
+            <div>
+                <p><strong>OPERAÇÃO:</strong> ${item.operacao}</p>
+                <p><strong>PERCENTUAL:</strong> ${item.porcentagem}</p>
+                <p><strong>ACRÉSCIMO:</strong> ${item.acrescimo}</p>
+                <p><strong>CONTA:</strong> ${item.conta}</p>
+                <p><strong>RESULTADO:</strong> ${item.resultado}</p>
+                <hr>
+            </div>
+        `).join('');
+    }
+}
+
+function atualizarMemoriaCalculoPagamentoVista() {
+    const historicoMemorias = document.getElementById('historico-memorias');
+
+    if (memoria.length === 0) {
+        historicoMemorias.innerHTML = '<p>Nenhuma operação realizada ainda.</p>';
+    } else {
+        historicoMemorias.innerHTML = memoria.map(item => `
+            <div>
+                <p><strong>OPERAÇÃO:</strong> ${item.operacao}</p>
+                <p><strong>PERCENTUAL:</strong> ${item.porcentagem}</p>
+                <p><strong>DESCONTO:</strong> ${item.acrescimo}</p>
                 <p><strong>CONTA:</strong> ${item.conta}</p>
                 <p><strong>RESULTADO:</strong> ${item.resultado}</p>
                 <hr>
@@ -290,4 +330,85 @@ function limparPorcentagem(){
 
     document.getElementById('resultadoPorcentagem').style.display = 'none';
     document.getElementById('resultadoTextoPorcentagem').textContent = '';
+}
+
+
+function calcularPagamentoPrazo(){
+    let num1 = document.getElementById('number1-pagamentoPrazo').value;
+    let num2 = document.getElementById('number2-pagamentoPrazo').value;
+
+    if(!verificarNumeroValido(num1) || !verificarNumeroValido(num2)){
+        alert('Valor01 ou Valor02 inválidos! Digite um número válido.');
+        return;
+    }else if(num2 == 0){
+        alert('Acréscimo de 0% não existe!');
+    }else{
+        let acrescimo = parseFloat(num1) * parseFloat(num2) / 100;
+        let resultado = parseFloat(num1) + acrescimo;
+
+        let divVisivel = document.getElementById('resultadoPagamentoPrazo');
+        let resultadoTexto = document.getElementById('resultadoTextoPagamentoPrazo');
+
+        divVisivel.style.display = 'block'; // Torna visível
+        resultadoTexto.textContent = `Total à pagar: R$ ${resultado.toFixed(2)}`;
+
+        //novo modelo de salvar a operação
+        memoria.push({
+            operacao: 'PAGAMENTO À PRAZO',
+            porcentagem: `${num2}%`,
+            acrescimo: `R$ ${acrescimo.toFixed(2)}`,
+            conta: `R$ ${num1} + R$ ${acrescimo.toFixed(2)}`,
+            resultado: resultado
+        });
+    }
+
+}
+
+function limparPagamentoPrazo(){
+    document.getElementById('number1-pagamentoPrazo').value = '';
+    document.getElementById('number2-pagamentoPrazo').value = '';
+
+    document.getElementById('resultadoPagamentoPrazo').style.display = 'none';
+    document.getElementById('resultadoTextoPagamentoPrazo').textContent = '';
+}
+
+
+
+function calcularPagamentoVista(){
+    let num1 = document.getElementById('number1-pagamentoVista').value;
+    let num2 = document.getElementById('number2-pagamentoVista').value;
+
+    if(!verificarNumeroValido(num1) || !verificarNumeroValido(num2)){
+        alert('Valor01 ou Valor02 inválidos! Digite um número válido.');
+        return;
+    }else if(num2 == 0){
+        alert('Acréscimo de 0% não existe!');
+    }else{
+        let desconto = parseFloat(num1) * parseFloat(num2) / 100;
+        let resultado = parseFloat(num1) - desconto;
+
+        let divVisivel = document.getElementById('resultadoPagamentoVista');
+        let resultadoTexto = document.getElementById('resultadoTextoPagamentoVista');
+
+        divVisivel.style.display = 'block'; // Torna visível
+        resultadoTexto.textContent = `Total à pagar: R$ ${resultado.toFixed(2)}`;
+
+        //novo modelo de salvar a operação
+        memoria.push({
+            operacao: 'PAGAMENTO À VISTA',
+            porcentagem: `${num2}%`,
+            acrescimo: `R$ ${desconto.toFixed(2)}`,
+            conta: `R$ ${num1} - R$ ${desconto.toFixed(2)}`,
+            resultado: resultado
+        });
+    }
+
+}
+
+function limparPagamentoVista(){
+    document.getElementById('number1-pagamentoVista').value = '';
+    document.getElementById('number2-pagamentoVista').value = '';
+
+    document.getElementById('resultadoPagamentoVista').style.display = 'none';
+    document.getElementById('resultadoTextoPagamentoVista').textContent = '';
 }
