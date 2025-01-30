@@ -16,3 +16,7 @@ button.addEventListener('mouseover', function(){
 function sim(){
     alert('Obrigado pela respota!!');
 }
+
+function nao(){
+    alert('Opção inválida, tenta o outro botão! 🤷‍♀️');
+}
