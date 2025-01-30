@@ -328,7 +328,10 @@ main {
 /* estilizando a div historico de memorias */
 .container-sec-left > .container-sec-left__janela-memoria > .historico-memorias{
     color: #fff;
+    overflow-y: auto;
+
     font-size: 16px;
+    max-height: 600px;
 }
 
 /* estilizando o botão da janela de memorias  */
