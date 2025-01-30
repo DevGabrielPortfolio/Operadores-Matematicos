@@ -10,6 +10,6 @@ function acessar(){
     }else{
         // manda o valor do nome para o documento principal
         localStorage.setItem('nome', nome);
-        window.location.href = '../../templates/home.html'
+        window.location.href = '../../templates/home.html';
     }
 }
