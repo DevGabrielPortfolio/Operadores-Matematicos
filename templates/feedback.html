@@ -3,30 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- importando o css -->
     <link rel="stylesheet" href="../assets/styles/feedback.css">
     <title>Feedback de uso do site</title>
 </head>
 <body>
-    <!-- container que irá armazenar todo o conteúdo do site -->
-    <div class="box">
 
-        <!-- perguntando ao usuário -->
+    <div class="box">
         <p>Gostou do meu site?</p>
 
-        <!-- guardando os botões em uma div -->
         <div class="buttons-container">
-
-            <button onclick="sim()">
+            <button class="btn" onclick="sim()">
                 <a href="#">Sim</a>
             </button>
-            <button id="nao">Não</button>
-
+            <button class="btn" id="nao">Não</button>
         </div>
-
     </div>
 
-    <!-- importando o js -->
     <script src="../assets/js/feedback.js" defer></script>
+
 </body>
 </html>

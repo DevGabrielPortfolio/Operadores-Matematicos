@@ -1,6 +1,3 @@
-
-
-
 // criando uma variável que armazena o botão não
 let button = document.getElementById('nao');
 //criando variavel par armazenar a altura da página
@@ -15,3 +12,7 @@ button.addEventListener('mouseover', function(){
     button.style.top = Math.random() * height + 'px';
     button.style.left = Math.random() * width + 'px';
 })
+
+function sim(){
+    alert('Obrigado pela respota!!');
+}
