@@ -15,6 +15,7 @@ button.addEventListener('mouseover', function(){
 
 function sim(){
     alert('Obrigado pela respota!!');
+    window.location.href = '../../templates/home.html';
 }
 
 function nao(){
