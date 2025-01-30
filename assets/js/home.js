@@ -3,7 +3,7 @@ let memoria = [];
 
 
 const nome = localStorage.getItem('nome');
-document.getElementById('titulo').textContent = `Bem-vindo(a) ${nome} ao nosso site de operações matemáticas!`;
+document.getElementById('titulo').textContent = `Bem-vindo(a), ${nome}, ao nosso site de operações matemáticas!`;
 
 
 function abrirCard(cardId) {
